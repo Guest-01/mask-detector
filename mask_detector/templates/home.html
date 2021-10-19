@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+home
+{% endblock %}
+
+{% block content %}
+<h2>"마스크 판독기"</h2>
+<p>사진 속 인물들의 마스크 착용 여부를 식별해줍니다</p>
+<span>✅ 사용법 및 주의사항</span>
+<ul>
+    <li>이미지 파일(.png 또는 .jpeg)만 업로드 가능</li>
+</ul>
+[👀 예시]
+<div class="mt-2 mb-4">
+    <img src="{{ url_for('static', filename='main_sample.png')}}" alt="">
+    마스크 판독 결과 👉
+    <img src="{{ url_for('static', filename='main_sample_processed.png')}}" alt="">
+</div>
+<a href="{{url_for('main.detect')}}" class="btn btn-primary">직접 해보러 가기</a>
+{% endblock %}

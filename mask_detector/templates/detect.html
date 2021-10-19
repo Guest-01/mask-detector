@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+detect
+{% endblock %}
+
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="alert alert-danger" role="alert">
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+<form action="{{ url_for('main.detect') }}" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="formFile" class="form-label">판독할 이미지를 업로드해주세요</label>
+        <input class="form-control" type="file" id="formFile" name="formFile" , accept="image/*">
+    </div>
+    <button type="submit" class="btn btn-primary">판독하기</button>
+</form>
+{% if img %}
+<div class="my-2">
+    [마스크 판독 결과]<br>
+    <img src="{{ url_for('static', filename='userimg/done_'+img) }}" alt="NotFound">
+</div>
+{% endif %}
+{% endblock %}
