@@ -7,11 +7,11 @@ detect
 {% block content %}
 {% with messages = get_flashed_messages() %}
 {% if messages %}
+{% for message in messages %}
 <div class="alert alert-danger" role="alert">
-    {% for message in messages %}
     {{ message }}
-    {% endfor %}
 </div>
+{% endfor %}
 {% endif %}
 {% endwith %}
 <form action="{{ url_for('main.detect') }}" method="post" enctype="multipart/form-data">
