@@ -6,7 +6,7 @@ COPY . .
 
 RUN apt-get update && apt-get -y install libgl1-mesa-glx
 
-RUN pip install tensorflow keras flask opencv-python gunicorn
+RUN pip install --no-cache-dir tensorflow keras flask opencv-python gunicorn
 
 EXPOSE 8000
 
