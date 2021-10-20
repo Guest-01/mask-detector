@@ -6,7 +6,7 @@ COPY . .
 
 ENV CUDA_VISIBLE_DEVICES=-1
 
-RUN apt && apt -y install libgl1-mesa-glx
+RUN apt update && apt -y install libgl1-mesa-glx
 
 RUN pip install --no-cache-dir flask opencv-python gunicorn
 
