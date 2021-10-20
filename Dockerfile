@@ -6,9 +6,9 @@ COPY . .
 
 ENV CUDA_VISIBLE_DEVICES=-1
 
-RUN apt-get update && apt-get -y install libgl1-mesa-glx
+RUN apt && apt -y install libgl1-mesa-glx
 
-RUN pip install --no-cache-dir tensorflow keras flask opencv-python gunicorn
+RUN pip install --no-cache-dir flask opencv-python gunicorn
 
 EXPOSE 8000
 
