@@ -6,10 +6,12 @@ COPY . .
 
 ENV CUDA_VISIBLE_DEVICES=-1
 
+ENV FLASK_APP=mask_detector
+
 RUN apt update && apt -y install libgl1-mesa-glx
 
 RUN pip install --no-cache-dir flask opencv-python gunicorn
 
-EXPOSE 8000
+EXPOSE 5000
 
-CMD [ "gunicorn" ]
+CMD [ "flask", "run", "--host=0.0.0.0" ]
