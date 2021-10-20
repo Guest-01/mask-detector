@@ -50,12 +50,16 @@ def detect_mask(img):
             cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 2)
     return img
 
+
 def img_resize(img):
     _, width = img.shape[:2]
     if width > 2200:
-        resized = cv2.resize(img, dsize=(0, 0), fx=0.6, fy=0.6, interpolation=cv2.INTER_AREA)
+        resized = cv2.resize(
+            img, dsize=(0, 0), fx=0.6, fy=0.6, interpolation=cv2.INTER_AREA
+        )
         return resized
     return img
+
 
 def load_detect_save(dir, filename):
     img = cv2.imread(f"{dir}/{filename}")
